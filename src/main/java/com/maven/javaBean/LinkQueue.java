@@ -6,7 +6,7 @@ import com.maven.javaBean.Service.ImyQueue;
  * @author lulu
  * @param <T>
  */
-public class LinkQueue<T> implements ImyQueue {
+public class LinkQueue<T> implements ImyQueue<T> {
     /**
      * 队列头节点和队列尾节点,当两个都为null时，队列为空
      */
@@ -67,7 +67,7 @@ public class LinkQueue<T> implements ImyQueue {
     }
 
     @Override
-    public Object peek() {
+    public T peek() {
         if(this.front == null){
             return null;
         }else {
@@ -76,7 +76,7 @@ public class LinkQueue<T> implements ImyQueue {
     }
 
     @Override
-    public Object element() {
+    public T element() {
         if(isEmpty()){
             throw new IllegalArgumentException("队列为空");
         }
@@ -84,7 +84,7 @@ public class LinkQueue<T> implements ImyQueue {
     }
 
     @Override
-    public Object poll() {
+    public T poll() {
         if(isEmpty()){
             return null;
         }
@@ -100,13 +100,25 @@ public class LinkQueue<T> implements ImyQueue {
     }
 
     @Override
-    public Object remove() {
+    public T remove() {
         return null;
     }
 
     @Override
     public void clearQueue() {
 
+    }
+
+    @Override
+    public String toString(){
+        StringBuilder sb = new StringBuilder("[ ");
+        Node temp = this.front;
+        while (temp != null){
+            sb.append(temp.data + " ");
+            temp = temp.next;
+        }
+        sb.append("]");
+        return sb.toString();
     }
 
     class Node<T>{
