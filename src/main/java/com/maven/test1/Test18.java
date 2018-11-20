@@ -4,6 +4,9 @@ package com.maven.test1;
 import com.maven.javaBean.LinkQueue;
 import com.maven.javaBean.Service.ImyQueue;
 
+/**
+ * @author lulu
+ */
 public class Test18 {
 
     public static void main(String[] args) {
