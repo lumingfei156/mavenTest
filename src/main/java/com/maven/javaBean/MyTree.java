@@ -1,6 +1,6 @@
 package com.maven.javaBean;
 
-import com.maven.javaBean.Service.IbinaryTree;
+import com.maven.javaBean.Service.ITree;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -9,7 +9,7 @@ import java.util.NoSuchElementException;
 /**
  * @author lulu
  */
-public class MyTree<T> implements IbinaryTree<T> {
+public class MyTree<T> implements ITree<T> {
     /**
      * 树节点数组
      */

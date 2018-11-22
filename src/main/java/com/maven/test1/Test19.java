@@ -1,7 +1,7 @@
 package com.maven.test1;
 
 import com.maven.javaBean.MyTree;
-import com.maven.javaBean.Service.IbinaryTree;
+import com.maven.javaBean.Service.ITree;
 import com.maven.javaBean.TreeNode;
 
 
@@ -12,7 +12,7 @@ public class Test19 {
 
     public static void main(String[] args) {
         TreeNode<String> parentNode = new TreeNode<>("0",-1);
-        IbinaryTree<String> myTree = new MyTree<>(parentNode,10);
+        ITree<String> myTree = new MyTree<>(parentNode,10);
 
         TreeNode<String> temp = new TreeNode<>("1-1",myTree.getPos(parentNode));
         myTree.addNode(temp.getData(),parentNode);

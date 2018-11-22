@@ -8,7 +8,7 @@ import java.util.List;
  * @author lulu
  * @param <T>
  */
-public interface IbinaryTree<T> {
+public interface ITree<T> {
     /**
      * 添加子节点
      * @param data 数据域
