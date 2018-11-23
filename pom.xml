@@ -86,23 +86,23 @@
       <artifactId>spring-boot-starter-tomcat</artifactId>
     </dependency>
 
-    <dependency>
-      <groupId>org.activiti</groupId>
-      <artifactId>activiti-spring-boot-starter-basic</artifactId>
-      <!--<version>${activiti.version}</version>-->
-    </dependency>
+    <!--<dependency>-->
+      <!--<groupId>org.activiti</groupId>-->
+      <!--<artifactId>activiti-spring-boot-starter-basic</artifactId>-->
+      <!--&lt;!&ndash;<version>${activiti.version}</version>&ndash;&gt;-->
+    <!--</dependency>-->
 
-    <dependency>
-      <groupId>org.activiti</groupId>
-      <artifactId>activiti-modeler</artifactId>
-      <!--<version>${activiti.version}</version>-->
-    </dependency>
+    <!--<dependency>-->
+      <!--<groupId>org.activiti</groupId>-->
+      <!--<artifactId>activiti-modeler</artifactId>-->
+      <!--&lt;!&ndash;<version>${activiti.version}</version>&ndash;&gt;-->
+    <!--</dependency>-->
 
-    <dependency>
-      <groupId>org.activiti</groupId>
-      <artifactId>activiti-diagram-rest</artifactId>
-      <!--<version>${activiti.version}</version>-->
-    </dependency>
+    <!--<dependency>-->
+      <!--<groupId>org.activiti</groupId>-->
+      <!--<artifactId>activiti-diagram-rest</artifactId>-->
+      <!--&lt;!&ndash;<version>${activiti.version}</version>&ndash;&gt;-->
+    <!--</dependency>-->
 
     <!-- db -->
     <dependency>
