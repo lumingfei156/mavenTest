@@ -11,6 +11,11 @@ public class BrinaryNode<T> {
     private T data;
 
     /**
+     * 父节点
+     */
+    private BrinaryNode<T> parent;
+
+    /**
      * 左孩子
      */
     private BrinaryNode<T> lChild;
@@ -24,6 +29,7 @@ public class BrinaryNode<T> {
         this.data = null;
         this.lChild = null;
         this.rChild = null;
+        this.parent = null;
     }
 
     public BrinaryNode(T data){
@@ -34,6 +40,11 @@ public class BrinaryNode<T> {
         this.data = data;
         this.lChild = lChild;
         this.rChild = rChild;
+    }
+
+    public BrinaryNode(T data,BrinaryNode<T> lChild,BrinaryNode<T> rChild,BrinaryNode<T> parent){
+        this(data,lChild,rChild);
+        this.parent = parent;
     }
 
     public T getData() {
@@ -58,5 +69,13 @@ public class BrinaryNode<T> {
 
     public void setrChild(BrinaryNode<T> rChild) {
         this.rChild = rChild;
+    }
+
+    public BrinaryNode<T> getParent() {
+        return parent;
+    }
+
+    public void setParent(BrinaryNode<T> parent) {
+        this.parent = parent;
     }
 }
