@@ -2,7 +2,6 @@ package com.maven.javaBean;
 
 import com.maven.javaBean.Service.IsearchTree;
 
-import java.security.KeyStore;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -122,21 +121,102 @@ public class SearchTree<T extends Comparable<T>> implements IsearchTree<T> {
      * @return 数据域的hashCode组成的整型数组
      */
     public static List<Integer> preOrderTraverse(BrinaryNode rootNode){
-        //算了明天再写，现在乱写一下
+        travers = new ArrayList<>();
+        //方法递归
         actPreOrderTraverse(rootNode);
         return travers;
     }
 
     /**
-     * 前序遍历递归实现
-     * @param tempNode
-     * @return
+     * 二叉树的中序遍历实现
+     * @param rootNode 要遍历的二叉树的根节点
+     * @return 数据域的hashCode组成的整型数组
      */
-    private static BrinaryNode actPreOrderTraverse(BrinaryNode tempNode){
-        if (tempNode != null){
-            travers.add(actPreOrderTraverse(tempNode.getlChild()).getData().hashCode());
-        }
+    public static List<Integer> inOrderTraverse(BrinaryNode rootNode){
+        travers = new ArrayList<>();
+        //方法递归
+        actInOrderTraverse(rootNode);
+        return travers;
+    }
 
-        return tempNode.getParent();
+    /**
+     * 二叉树的后序遍历实现
+     * @param rootNode 要遍历的二叉树的根节点
+     * @return 数据域的hashCode组成的整型数组
+     */
+    public static List<Integer> postOrderTraverse(BrinaryNode rootNode){
+        travers = new ArrayList<>();
+        //方法递归
+        actPostOrderTraverse(rootNode);
+        return travers;
+    }
+
+    /**
+     * 前序遍历递归实现
+     * @param tempNode 要遍历的根节点
+     */
+    private static void actPreOrderTraverse(BrinaryNode tempNode){
+
+        if (tempNode != null){
+            travers.add(tempNode.getData().hashCode());
+            if (tempNode.getlChild() != null){
+                actPreOrderTraverse(tempNode.getlChild());
+            }
+            if  (tempNode.getrChild() != null){
+                actPreOrderTraverse(tempNode.getrChild());
+            }
+        }
+    }
+
+    /**
+     * 中序遍历递归实现
+     * @param tempNode 要遍历的根节点
+     */
+    private static void actInOrderTraverse(BrinaryNode tempNode){
+
+        if (tempNode != null){
+
+            if (tempNode.getlChild() != null){
+                actInOrderTraverse(tempNode.getlChild());
+            }
+            travers.add(tempNode.getData().hashCode());
+            if  (tempNode.getrChild() != null){
+                actInOrderTraverse(tempNode.getrChild());
+            }
+        }
+    }
+
+    /**
+     * 后序遍历递归实现
+     * @param tempNode 要遍历的根节点
+     */
+    private static void actPostOrderTraverse(BrinaryNode tempNode){
+
+        if (tempNode != null){
+
+            if (tempNode.getlChild() != null){
+                actPostOrderTraverse(tempNode.getlChild());
+            }
+            if  (tempNode.getrChild() != null){
+                actPostOrderTraverse(tempNode.getrChild());
+            }
+            travers.add(tempNode.getData().hashCode());
+        }
+    }
+
+    public BrinaryNode<T> getRoot() {
+        return root;
+    }
+
+    public void setRoot(BrinaryNode<T> root) {
+        this.root = root;
+    }
+
+    public int getSize() {
+        return size;
+    }
+
+    public void setSize(int size) {
+        this.size = size;
     }
 }
