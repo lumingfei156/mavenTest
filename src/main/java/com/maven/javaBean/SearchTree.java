@@ -4,6 +4,7 @@ import com.maven.javaBean.Service.IsearchTree;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Stack;
 
 /**
  * 二叉排序树的实现类
@@ -116,7 +117,7 @@ public class SearchTree<T extends Comparable<T>> implements IsearchTree<T> {
     }
 
     /**
-     * 二叉树的前序遍历实现
+     * 二叉树的前序遍历实现(递归实现)
      * @param rootNode 要遍历的二叉树的根节点
      * @return 数据域的hashCode组成的整型数组
      */
@@ -128,7 +129,41 @@ public class SearchTree<T extends Comparable<T>> implements IsearchTree<T> {
     }
 
     /**
-     * 二叉树的中序遍历实现
+     * 用栈和循环实现前序遍历
+     * @param rootNode 根节点
+     * @param t 用于区分递归方法前序遍历
+     * @return ddd
+     */
+    public static List<Integer> preOrderTraverse(BrinaryNode rootNode,boolean t){
+        travers = new ArrayList<>();
+        //利用栈先进后出的特性实现
+        Stack<BrinaryNode> stack = new Stack<>();
+        BrinaryNode currentNode = rootNode;
+
+        while (currentNode != null){
+            //有节点进来就压栈，但关键是出栈的顺序
+            stack.push(currentNode);
+
+            while (!stack.isEmpty()){
+                //将根节点出栈，然后再把右左孩子进栈，这样就达到了左孩子整棵树都出栈了再到有孩子出栈
+                currentNode = stack.pop();
+                travers.add(currentNode.getData().hashCode());
+
+                if (currentNode.getrChild() != null){
+                    stack.push(currentNode.getrChild());
+                }
+                if (currentNode.getlChild() != null){
+                    stack.push(currentNode.getlChild());
+                }
+            }
+            //主动置空，不然currentNode一直为真
+            currentNode = null;
+        }
+        return travers;
+    }
+
+    /**
+     * 二叉树的中序遍历实现(递归实现)
      * @param rootNode 要遍历的二叉树的根节点
      * @return 数据域的hashCode组成的整型数组
      */
@@ -140,7 +175,41 @@ public class SearchTree<T extends Comparable<T>> implements IsearchTree<T> {
     }
 
     /**
-     * 二叉树的后序遍历实现
+     * 用栈和循环实现中序遍历
+     * @param rootNode 根节点
+     * @param t 用于区分递归方法中序遍历
+     * @return ddd
+     */
+    public static List<Integer> inOrderTraverse(BrinaryNode rootNode,boolean t){
+        travers = new ArrayList<>();
+        //利用栈先进后出的特性实现
+        Stack<BrinaryNode> stack = new Stack<>();
+        BrinaryNode currentNode = rootNode;
+
+        while (currentNode != null){
+            //有节点进来就压栈，但关键是出栈的顺序
+            stack.push(currentNode);
+
+            while (!stack.isEmpty()){
+
+                if (currentNode.getrChild() != null){
+                    stack.push(currentNode.getrChild());
+                }
+                if (currentNode.getlChild() != null){
+                    stack.push(currentNode.getlChild());
+                }
+                //将左节点出栈
+                currentNode = stack.pop();
+                travers.add(currentNode.getData().hashCode());
+            }
+            //主动置空，不然currentNode一直为真
+            currentNode = null;
+        }
+        return travers;
+    }
+
+    /**
+     * 二叉树的后序遍历实现(递归实现)
      * @param rootNode 要遍历的二叉树的根节点
      * @return 数据域的hashCode组成的整型数组
      */
