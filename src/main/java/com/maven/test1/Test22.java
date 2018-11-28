@@ -20,7 +20,7 @@ public class Test22 {
         BrinaryNode<Integer> findNode = searchTree.findTreeNode(5);
         System.out.println(findNode.getData());
         System.out.println("前序遍历：");
-        System.out.println(SearchTree.preOrderTraverse(searchTree.getRoot()));
+        System.out.println(SearchTree.preOrderTraverse(searchTree.getRoot(),false));
         System.out.println("中序遍历：");
         System.out.println(SearchTree.inOrderTraverse(searchTree.getRoot()));
         System.out.println("后序遍历：");
