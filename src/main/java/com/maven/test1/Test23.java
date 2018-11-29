@@ -38,12 +38,22 @@ public class Test23 {
 
         String[] ss = new String[]{"1","2","3"};
         List<String> str = Arrays.asList(ss);
+        /*
+         * 这种方式并不会调用集合的迭代器
+         */
         str.forEach(new Consumer<String>() {
             @Override
             public void accept(String s) {
                 System.out.println(s);
             }
         });
+        /*
+         * 五五开猜想(five five open guess)：
+         * 由于使用lambda表达式debug程序时发现会调用到集合类的迭代器，所以开哥提出了他的猜想
+         * 使用lambda表达式，在将lambda装换成Consumer实例的时候，会调用相应集合的迭代器来进行实例化
+         * 为什么调用迭代器具体原因开哥也不懂，
+         * 总的来说会调用HashMap和ArrayList的迭代器。
+         */
         System.out.println("用lambda表达式");
         Consumer<String> consumer = (String temp) -> {
             System.out.println(temp);
