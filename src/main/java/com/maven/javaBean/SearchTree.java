@@ -185,25 +185,18 @@ public class SearchTree<T extends Comparable<T>> implements IsearchTree<T> {
         //利用栈先进后出的特性实现
         Stack<BrinaryNode> stack = new Stack<>();
         BrinaryNode currentNode = rootNode;
-
-        while (currentNode != null){
-            //有节点进来就压栈，但关键是出栈的顺序
-            stack.push(currentNode);
-
-            while (!stack.isEmpty()){
-
-                if (currentNode.getrChild() != null){
-                    stack.push(currentNode.getrChild());
-                }
-                if (currentNode.getlChild() != null){
-                    stack.push(currentNode.getlChild());
-                }
-                //将左节点出栈
+        while (!stack.isEmpty() || currentNode != null){
+            //先把节点的左孩子全都添加到栈中，然后通过出栈改变currentNode的值
+            while (currentNode != null){
+                stack.push(currentNode);
+                currentNode = currentNode.getlChild();
+            }
+            if (!stack.isEmpty()){
+                //把树的根节点出栈，然后改变currentNode的值，这时候会回到上一个while循环，这时候就会把右节点也添加到栈中
                 currentNode = stack.pop();
                 travers.add(currentNode.getData().hashCode());
+                currentNode = currentNode.getrChild();
             }
-            //主动置空，不然currentNode一直为真
-            currentNode = null;
         }
         return travers;
     }
@@ -217,6 +210,22 @@ public class SearchTree<T extends Comparable<T>> implements IsearchTree<T> {
         travers = new ArrayList<>();
         //方法递归
         actPostOrderTraverse(rootNode);
+        return travers;
+    }
+
+    /**
+     * 用栈和循环实现二叉排序树的后序遍历
+     * @param rootNode 要遍历的二叉树的根节点
+     * @return 数据域的hashCode组成的整型数组
+     */
+    public static List<Integer> postOrderTraverse(BrinaryNode rootNode,boolean t){
+        travers = new ArrayList<>();
+        //想不出来，好烦！！！先不写了
+        if(rootNode != null){
+            while (true){
+
+            }
+        }
         return travers;
     }
 
