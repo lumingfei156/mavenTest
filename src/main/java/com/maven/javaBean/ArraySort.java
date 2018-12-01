@@ -3,6 +3,8 @@ package com.maven.javaBean;
 import sun.security.util.Length;
 import sun.swing.plaf.synth.DefaultSynthStyle;
 
+import javax.swing.*;
+
 /**
  * @author lulu
  * @since 2018/11/30
@@ -114,6 +116,29 @@ public class ArraySort {
             //当array[j]的值比temp值也就是array[i]的值小的时候，就把temp值插入j的后一位
             array[j + 1] = temp;
         }
+    }
+
+    /**
+     * 实现希尔排序
+     * @param array 要排序的数组
+     */
+    public static void shellSort(int[] array){
+        //用于暂存比较的值
+        int temp;
+        int j;
+        //分组元素的间隔个数，用于决定每条分组的元素个数
+        int section = array.length / 2;
+        while(section >= 1){
+            for (int i = section;i < array.length - 1;i++){
+                temp = array[i];
+                //首先求和i同组的前一个元素，然后通过比较将小的放到前面
+                j = i - section;
+                while (j >= 0 && array[j] > temp){
+                    
+                }
+            }
+        }
+
     }
 
 }
