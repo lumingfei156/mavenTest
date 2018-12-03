@@ -144,4 +144,12 @@ public class ArraySort {
 
     }
 
+    /**
+     * 快速排序的实现
+     * @param array 用于排序的数组
+     */
+    public static void quickSort(int[] array){
+
+    }
+
 }
