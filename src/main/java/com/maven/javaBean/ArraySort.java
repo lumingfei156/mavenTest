@@ -129,14 +129,17 @@ public class ArraySort {
         //分组元素的间隔个数，用于决定每条分组的元素个数
         int section = array.length / 2;
         while(section >= 1){
-            for (int i = section;i < array.length - 1;i++){
+            for (int i = section;i < array.length;i++){
                 temp = array[i];
                 //首先求和i同组的前一个元素，然后通过比较将小的放到前面
                 j = i - section;
                 while (j >= 0 && array[j] > temp){
-                    
+                    array[j + section] = array[j];
+                    j = j - section;
                 }
+                array[j + section] = temp;
             }
+            section /=  2;
         }
 
     }
