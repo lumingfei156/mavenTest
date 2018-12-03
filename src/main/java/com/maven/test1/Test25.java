@@ -46,6 +46,13 @@ public class Test25 {
             System.out.print(temp + " ");
         }
 
+        int[] array5 = new int[]{9,1,5,8,3,7,4,6,2};
+        ArraySort.shellSort(array5);
+        System.out.println("\n希尔排序：");
+        for (int temp : array5){
+            System.out.print(temp + " ");
+        }
+
 
 
     }
